@@ -1,0 +1,21 @@
+# Core Data Science Libraries
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Machine Learning & Deep Learning
+scikit-learn>=1.3.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Optimization
+pyswarm>=0.6
+deap>=1.4.1
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0
+
+# Utilities
+tqdm>=4.65.0

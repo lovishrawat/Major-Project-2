@@ -1,0 +1,40 @@
+{
+  "sizing": {
+    "energy_kwh": 14.701871626973038,
+    "power_kw": 5.0,
+    "energy_to_power_ratio": 2.9403743253946075
+  },
+  "costs": {
+    "energy_cost": 2205.2807440459555,
+    "power_cost": 500.0,
+    "total_capital_cost": 2705.2807440459555,
+    "cost_per_kwh": 150,
+    "cost_per_kw": 100
+  },
+  "economics": {
+    "npc": 4454.687018183153,
+    "levelized_cost": 222.73435090915763
+  },
+  "performance": {
+    "total_load": 8137.821185555614,
+    "total_pv": 4557.45246763509,
+    "total_unmet_load": 3612.391715622972,
+    "total_curtailed": 0.0,
+    "lpsp": 0.4439015841285451,
+    "renewable_penetration": 0.5600334983674046,
+    "self_consumption": 1.0,
+    "battery_cycles": 0.0
+  },
+  "battery_status": {
+    "soc": 0.2,
+    "soc_percent": 20.0,
+    "energy_stored_kwh": 2.932700431758371,
+    "current_capacity_kwh": 14.663502158791854,
+    "nominal_capacity_kwh": 14.701871626973038,
+    "capacity_fade_percent": 0.26098356151327273,
+    "total_cycles": 24.14999996735932,
+    "age_years": 0.0821917808219178,
+    "max_charge_power_kw": 5.0,
+    "max_discharge_power_kw": 0.0
+  }
+}
