@@ -1,11 +1,11 @@
 Metric,Value,Unit
-Energy Capacity,10.00,kWh
-Power Rating,5.00,kW
-E/P Ratio,2.00,hours
-Capital Cost,"₹160,000.00",₹
-Net Present Cost,"₹241,856.74",₹
-Levelized Annual Cost,"₹12,092.84",$/year
-LPSP,45.72,%
-Renewable Penetration,54.54,%
-Self-Consumption,97.39,%
-Battery Cycles,0.00,cycles
+Energy Capacity,126.95,kWh
+Power Rating,11.80,kW
+E/P Ratio,10.76,hours
+Capital Cost,"₹2,045,870.58",₹
+Net Present Cost,"₹2,883,988.72",₹
+Levelized Annual Cost,"₹144,199.44",₹/year
+LPSP,5.00,%
+Renewable Penetration,98.92,%
+Self-Consumption,70.65,%
+Battery Cycles,23.97,cycles

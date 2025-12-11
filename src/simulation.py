@@ -214,7 +214,8 @@ class MicrogridSimulator:
             self.metrics['self_consumption'] = pv_consumed / self.metrics['total_pv']
         
         # Battery cycles
-        self.metrics['battery_cycles'] = self.battery.total_cycles
+        pending_cycles = self.battery.total_throughput_kwh / (2 * self.battery.nominal_capacity_kwh)
+        self.metrics['battery_cycles'] = self.battery.total_cycles + pending_cycles
     
     def get_metrics(self) -> Dict[str, float]:
         """Return performance metrics."""

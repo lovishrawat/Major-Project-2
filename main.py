@@ -114,7 +114,8 @@ def main(args):
         time = np.arange(hours)
         hour_of_day = time % 24
         
-        pv_forecast = 20 * np.maximum(0, np.sin(np.pi * (hour_of_day - 6) / 12))
+        # PV generation (Increased to 50kW peak to match ~12kW avg load)
+        pv_forecast = 50 * np.maximum(0, np.sin(np.pi * (hour_of_day - 6) / 12))
         load_forecast = 12 + 5 * np.sin(np.pi * (hour_of_day - 8) / 10)
     
     print(f"✓ Generated {len(pv_forecast)} hour forecast")

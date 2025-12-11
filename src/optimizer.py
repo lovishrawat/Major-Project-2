@@ -129,7 +129,8 @@ class BESSOptimizer:
             lpsp_threshold = self.opt_params['lpsp_max']
             if lpsp > lpsp_threshold:
                 # Heavy penalty for violating LPSP constraint
-                penalty = 1e6 * (lpsp - lpsp_threshold)
+                # Increased to 1e9 to ensure constraint is respected with Rupee-scale costs
+                penalty = 1e9 * (lpsp - lpsp_threshold)
                 objective = npc + penalty
             else:
                 objective = npc

@@ -269,7 +269,7 @@ def calculate_metrics_summary(evaluation: Dict) -> pd.DataFrame:
         f"₹{evaluation['economics']['npc']:,.2f}",
         f"₹{evaluation['economics']['levelized_cost']:,.2f}"
     ])
-    data['Unit'].extend(['₹', '₹', '$/year'])
+    data['Unit'].extend(['₹', '₹', '₹/year'])
     
     # Performance metrics
     perf = evaluation['performance']
