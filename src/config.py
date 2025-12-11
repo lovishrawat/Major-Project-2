@@ -26,8 +26,8 @@ BATTERY_PARAMS = {
     'soc_min': 0.20,                 # Minimum SOC (20%)
     'soc_max': 1.00,                 # Maximum SOC (100%)
     'soc_initial': 0.50,             # Initial SOC (50%)
-    'cost_per_kwh': 12000,           # Battery cost (₹/kWh) - Indian market rate
-    'cost_per_kw': 8000,             # Power electronics cost (₹/kW)
+    'cost_per_kwh': 15000,           # Battery cost (₹/kWh) - Grid-scale estimate (₹11k-19k range)
+    'cost_per_kw': 12000,            # Power electronics cost (₹/kW) - Adjusted for scale
     'lifetime_cycles': 5000,         # Rated cycle life
     'calendar_life': 15,             # Calendar life (years)
     'degradation_rate': 0.02,        # Annual capacity fade (2% per year)
@@ -37,7 +37,7 @@ BATTERY_PARAMS = {
 # ECONOMIC PARAMETERS
 # ============================================================================
 ECONOMIC_PARAMS = {
-    'interest_rate': 0.08,           # Discount rate (8%) - India typical
+    'interest_rate': 0.10,           # Discount rate (10%) - Commercial rate
     'project_lifetime': 20,          # Project lifetime (years)
     'om_cost_percent': 0.02,         # O&M cost as % of capital (2% annually)
     'replacement_threshold': 0.70,   # Replace when capacity < 70%
@@ -52,12 +52,12 @@ GRID_PARAMS = {
     'tou_enabled': True,             # Time-of-Use pricing enabled
     
     # Indian TOU tariff structure (₹/kWh) - Based on typical industrial/commercial rates
-    'peak_import_price': 8.0,        # Peak hours: 6 PM - 10 PM (₹8.0/kWh)
-    'mid_import_price': 6.0,         # Mid hours: 10 AM - 6 PM (₹6.0/kWh)
-    'offpeak_import_price': 4.5,     # Off-peak: 10 PM - 10 AM (₹4.5/kWh)
+    'peak_import_price': 12.0,       # Peak hours: 6 PM - 10 PM (₹12.0/kWh)
+    'mid_import_price': 8.0,         # Mid hours: 10 AM - 6 PM (₹8.0/kWh)
+    'offpeak_import_price': 6.0,     # Off-peak: 10 PM - 10 AM (₹6.0/kWh)
     
     # Export price (feed-in tariff / net metering rate)
-    'export_price': 3.0,             # ₹3.0/kWh (typically lower than import)
+    'export_price': 3.5,             # ₹3.5/kWh (APPC rate)
     
     # TOU time windows (24-hour format)
     'peak_hours': [18, 19, 20, 21],                        # 6 PM - 10 PM
@@ -74,9 +74,9 @@ OPTIMIZATION_PARAMS = {
     'bess_kwh_max': 500,             # Maximum battery capacity (kWh)
     'bess_kw_min': 5,                # Minimum power rating (kW)
     'bess_kw_max': 250,              # Maximum power rating (kW)
-    'pso_swarm_size': 30,            # PSO particle count
-    'pso_max_iter': 50,              # PSO maximum iterations
-    'pso_omega': 0.5,                # PSO inertia weight
+    'pso_swarm_size': 50,            # PSO particle count (Increased for better search)
+    'pso_max_iter': 100,             # PSO maximum iterations (Increased)
+    'pso_omega': 0.7,                # PSO inertia weight (Adjusted)
     'pso_phip': 0.5,                 # PSO cognitive parameter
     'pso_phig': 0.5,                 # PSO social parameter
 }

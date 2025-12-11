@@ -1,40 +1,40 @@
 {
   "sizing": {
-    "energy_kwh": 10.0,
-    "power_kw": 5.0,
-    "energy_to_power_ratio": 2.0
+    "energy_kwh": 126.95290217724438,
+    "power_kw": 11.79997698380987,
+    "energy_to_power_ratio": 10.758741508685128
   },
   "costs": {
-    "energy_cost": 120000.0,
-    "power_cost": 40000.0,
-    "total_capital_cost": 160000.0,
-    "cost_per_kwh": 12000,
-    "cost_per_kw": 8000
+    "energy_cost": 1904293.5326586657,
+    "power_cost": 141599.72380571844,
+    "total_capital_cost": 2045893.256464384,
+    "cost_per_kwh": 15000,
+    "cost_per_kw": 12000
   },
   "economics": {
-    "npc": 241856.7444983801,
-    "levelized_cost": 12092.837224919005
+    "npc": 2884020.6879746215,
+    "levelized_cost": 144201.03439873108
   },
   "performance": {
     "total_load": 8137.821185555614,
-    "total_pv": 4557.45246763509,
-    "total_unmet_load": 3720.934421675759,
-    "total_curtailed": 118.78412480786716,
-    "lpsp": 0.45723963906706444,
-    "renewable_penetration": 0.5454369470179222,
-    "self_consumption": 0.9739362888255189,
-    "battery_cycles": 0.0
+    "total_pv": 11393.631169087726,
+    "total_unmet_load": 406.89171699220833,
+    "total_curtailed": 3343.8137596463666,
+    "lpsp": 0.05000008082193165,
+    "renewable_penetration": 0.9891858306901044,
+    "self_consumption": 0.7065190447169705,
+    "battery_cycles": 23.974367213459075
   },
   "battery_status": {
-    "soc": 0.2,
-    "soc_percent": 20.0,
-    "energy_stored_kwh": 1.9947803287671235,
-    "current_capacity_kwh": 9.973901643835617,
-    "nominal_capacity_kwh": 10.0,
-    "capacity_fade_percent": 0.26098356164382386,
-    "total_cycles": 24.15,
+    "soc": 0.5512655730820629,
+    "soc_percent": 55.126557308206294,
+    "energy_stored_kwh": 69.80260730726785,
+    "current_capacity_kwh": 126.62246785521076,
+    "nominal_capacity_kwh": 126.95290217724438,
+    "capacity_fade_percent": 0.2602810304976666,
+    "total_cycles": 23.974367213459075,
     "age_years": 0.0821917808219178,
-    "max_charge_power_kw": 5.0,
-    "max_discharge_power_kw": 0.0
+    "max_charge_power_kw": 11.79997698380987,
+    "max_discharge_power_kw": 11.79997698380987
   }
 }
