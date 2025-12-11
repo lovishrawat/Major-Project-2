@@ -26,8 +26,8 @@ BATTERY_PARAMS = {
     'soc_min': 0.20,                 # Minimum SOC (20%)
     'soc_max': 1.00,                 # Maximum SOC (100%)
     'soc_initial': 0.50,             # Initial SOC (50%)
-    'cost_per_kwh': 150,             # Battery cost ($/kWh)
-    'cost_per_kw': 100,              # Power electronics cost ($/kW)
+    'cost_per_kwh': 12000,           # Battery cost (₹/kWh) - Indian market rate
+    'cost_per_kw': 8000,             # Power electronics cost (₹/kW)
     'lifetime_cycles': 5000,         # Rated cycle life
     'calendar_life': 15,             # Calendar life (years)
     'degradation_rate': 0.02,        # Annual capacity fade (2% per year)
@@ -37,12 +37,32 @@ BATTERY_PARAMS = {
 # ECONOMIC PARAMETERS
 # ============================================================================
 ECONOMIC_PARAMS = {
-    'interest_rate': 0.06,           # Discount rate (6%)
+    'interest_rate': 0.08,           # Discount rate (8%) - India typical
     'project_lifetime': 20,          # Project lifetime (years)
     'om_cost_percent': 0.02,         # O&M cost as % of capital (2% annually)
-    'electricity_price': 0.12,       # Grid electricity price ($/kWh)
-    'feed_in_tariff': 0.08,          # Export tariff ($/kWh)
     'replacement_threshold': 0.70,   # Replace when capacity < 70%
+}
+
+# ============================================================================
+# GRID PARAMETERS (Indian Electricity Tariff)
+# ============================================================================
+GRID_PARAMS = {
+    'import_enabled': True,          # Allow grid import
+    'export_enabled': True,          # Allow grid export (net metering)
+    'tou_enabled': True,             # Time-of-Use pricing enabled
+    
+    # Indian TOU tariff structure (₹/kWh) - Based on typical industrial/commercial rates
+    'peak_import_price': 8.0,        # Peak hours: 6 PM - 10 PM (₹8.0/kWh)
+    'mid_import_price': 6.0,         # Mid hours: 10 AM - 6 PM (₹6.0/kWh)
+    'offpeak_import_price': 4.5,     # Off-peak: 10 PM - 10 AM (₹4.5/kWh)
+    
+    # Export price (feed-in tariff / net metering rate)
+    'export_price': 3.0,             # ₹3.0/kWh (typically lower than import)
+    
+    # TOU time windows (24-hour format)
+    'peak_hours': [18, 19, 20, 21],                        # 6 PM - 10 PM
+    'mid_hours': [10, 11, 12, 13, 14, 15, 16, 17],        # 10 AM - 6 PM
+    # Remaining hours (22, 23, 0-9) are off-peak
 }
 
 # ============================================================================

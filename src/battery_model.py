@@ -6,7 +6,12 @@ Implements battery physics, SOC tracking, and degradation modeling.
 import numpy as np
 from typing import Dict, Tuple
 
-from . import config
+try:
+    # Try relative import (when used as a module)
+    from . import config
+except ImportError:
+    # Fall back to direct import (when run as a script)
+    import config
 
 
 class BatteryStorage:

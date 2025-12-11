@@ -6,12 +6,15 @@ Implements LSTM-based forecasting for solar generation and load demand.
 import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, TensorDataset
+from torch.utils.data import DataLoader as TorchDataLoader, TensorDataset
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from typing import Tuple, Dict
 import os
 
-from . import config
+try:
+    from . import config
+except ImportError:
+    import config
 
 
 class LSTMForecaster(nn.Module):
@@ -127,7 +130,7 @@ class ForecastingEngine:
         total_params = sum(p.numel() for p in self.model.parameters())
         print(f"✓ Model built with {total_params:,} parameters")
         
-    def train_epoch(self, dataloader: DataLoader) -> float:
+    def train_epoch(self, dataloader: TorchDataLoader) -> float:
         """
         Train for one epoch.
         
@@ -157,7 +160,7 @@ class ForecastingEngine:
         
         return total_loss / len(dataloader)
     
-    def evaluate(self, dataloader: DataLoader) -> float:
+    def evaluate(self, dataloader: TorchDataLoader) -> float:
         """
         Evaluate model on validation/test set.
         
@@ -216,7 +219,7 @@ class ForecastingEngine:
             torch.FloatTensor(X_train), 
             torch.FloatTensor(y_train)
         )
-        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_loader = TorchDataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         
         val_loader = None
         if X_val is not None and y_val is not None:
@@ -224,7 +227,7 @@ class ForecastingEngine:
                 torch.FloatTensor(X_val), 
                 torch.FloatTensor(y_val)
             )
-            val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+            val_loader = TorchDataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         
         # Training loop
         print("\n" + "="*60)
@@ -366,7 +369,10 @@ def forecast_future(engine: ForecastingEngine, initial_sequence: np.ndarray,
 
 if __name__ == "__main__":
     # Example usage
-    from .data_loader import DataLoader
+    try:
+        from .data_loader import DataLoader
+    except ImportError:
+        from data_loader import DataLoader
     
     # Load data
     loader = DataLoader()

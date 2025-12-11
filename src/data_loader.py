@@ -10,7 +10,10 @@ from sklearn.model_selection import train_test_split
 from typing import Tuple, Dict, Optional
 import os
 
-from . import config
+try:
+    from . import config
+except ImportError:
+    import config
 
 
 class DataLoader:
@@ -318,9 +321,14 @@ def generate_sample_data(filepath: str, num_days: int = 365):
 
 
 if __name__ == "__main__":
-    # Generate sample data
+    # Check if data file exists, generate only if missing
     sample_file = os.path.join(config.DATA_DIR, 'sample_data.csv')
-    generate_sample_data(sample_file, num_days=365)
+    
+    if not os.path.exists(sample_file):
+        print(f"⚠ Data file not found, generating sample data...")
+        generate_sample_data(sample_file, num_days=365)
+    else:
+        print(f"✓ Using existing data file: {sample_file}")
     
     # Test data loader
     loader = DataLoader()
