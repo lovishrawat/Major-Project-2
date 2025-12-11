@@ -311,8 +311,8 @@ def generate_sample_data(filepath: str, num_days: int = 365):
         'load': load
     })
     
-    # Add some missing values (2%)
-    missing_indices = np.random.choice(hours, size=int(hours * 0.02), replace=False)
+    # Add some missing values (12% as requested)
+    missing_indices = np.random.choice(hours, size=int(hours * 0.12), replace=False)
     for col in ['irradiance', 'temperature', 'load']:
         df.loc[missing_indices, col] = np.nan
     
