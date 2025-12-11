@@ -56,7 +56,7 @@ class BESSOptimizer:
             simulation_results: Results from simulation
             
         Returns:
-            Net Present Cost ($)
+            Net Present Cost (₹)
         """
         # Capital cost
         costs = calculate_battery_cost(energy_kwh, power_kw)
@@ -237,7 +237,7 @@ class BESSOptimizer:
                 print("="*60)
                 print(f"Optimal Energy Capacity: {xopt[0]:.2f} kWh")
                 print(f"Optimal Power Rating:   {xopt[1]:.2f} kW")
-                print(f"Optimal NPC:            ${fopt:,.2f}")
+                print(f"Optimal NPC:            ₹{fopt:,.2f}")
                 print(f"Total evaluations:      {self.eval_count}")
                 print("="*60 + "\n")
             
@@ -305,13 +305,13 @@ class BESSOptimizer:
         print("\nCosts:")
         for key, value in evaluation['costs'].items():
             if 'cost' not in key.lower() or value > 100:
-                print(f"  {key}: ${value:,.2f}")
+                print(f"  {key}: ₹{value:,.2f}")
             else:
-                print(f"  {key}: ${value:.2f}")
+                print(f"  {key}: ₹{value:.2f}")
         
         print("\nEconomics:")
         for key, value in evaluation['economics'].items():
-            print(f"  {key}: ${value:,.2f}")
+            print(f"  {key}: ₹{value:,.2f}")
         
         print("\nPerformance:")
         perf = evaluation['performance']

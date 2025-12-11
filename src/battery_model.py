@@ -323,4 +323,4 @@ if __name__ == "__main__":
     costs = calculate_battery_cost(100, 50)
     print(f"\n\nCost Breakdown:")
     for key, value in costs.items():
-        print(f"  {key}: ${value:,.2f}")
+        print(f"  {key}: ₹{value:,.2f}")

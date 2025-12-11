@@ -149,14 +149,14 @@ def plot_optimization_history(history: List[Dict], save_path: str = None):
     # Plot 1: Objective value over iterations
     axes[0, 0].plot(df['objective'], linewidth=2)
     axes[0, 0].set_xlabel('Evaluation')
-    axes[0, 0].set_ylabel('Objective Value ($)')
+    axes[0, 0].set_ylabel('Objective Value (₹)')
     axes[0, 0].set_title('Convergence History')
     axes[0, 0].grid(True, alpha=0.3)
     
     # Plot 2: NPC vs iterations
     axes[0, 1].plot(df['npc'], linewidth=2, color='green')
     axes[0, 1].set_xlabel('Evaluation')
-    axes[0, 1].set_ylabel('NPC ($)')
+    axes[0, 1].set_ylabel('NPC (₹)')
     axes[0, 1].set_title('Net Present Cost Evolution')
     axes[0, 1].grid(True, alpha=0.3)
     
@@ -177,7 +177,7 @@ def plot_optimization_history(history: List[Dict], save_path: str = None):
     axes[1, 1].set_xlabel('Energy Capacity (kWh)')
     axes[1, 1].set_ylabel('Power Rating (kW)')
     axes[1, 1].set_title('Solution Space Exploration')
-    plt.colorbar(scatter, ax=axes[1, 1], label='NPC ($)')
+    plt.colorbar(scatter, ax=axes[1, 1], label='NPC (₹)')
     axes[1, 1].grid(True, alpha=0.3)
     
     plt.tight_layout()
@@ -265,11 +265,11 @@ def calculate_metrics_summary(evaluation: Dict) -> pd.DataFrame:
     # Economic metrics
     data['Metric'].extend(['Capital Cost', 'Net Present Cost', 'Levelized Annual Cost'])
     data['Value'].extend([
-        f"${evaluation['costs']['total_capital_cost']:,.2f}",
-        f"${evaluation['economics']['npc']:,.2f}",
-        f"${evaluation['economics']['levelized_cost']:,.2f}"
+        f"₹{evaluation['costs']['total_capital_cost']:,.2f}",
+        f"₹{evaluation['economics']['npc']:,.2f}",
+        f"₹{evaluation['economics']['levelized_cost']:,.2f}"
     ])
-    data['Unit'].extend(['$', '$', '$/year'])
+    data['Unit'].extend(['₹', '₹', '$/year'])
     
     # Performance metrics
     perf = evaluation['performance']

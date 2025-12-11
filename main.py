@@ -139,7 +139,7 @@ def main(args):
     print(f"\n✓ Optimization complete!")
     print(f"  Optimal Energy Capacity: {optimal_solution[0]:.2f} kWh")
     print(f"  Optimal Power Rating:    {optimal_solution[1]:.2f} kW")
-    print(f"  Optimal NPC:             ${optimal_cost:,.2f}")
+    print(f"  Optimal NPC:             ₹{optimal_cost:,.2f}")
     
     # ========================================================================
     # STAGE 4: DETAILED EVALUATION
